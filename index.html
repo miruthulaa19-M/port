@@ -1,0 +1,1144 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Miruthulaa | Full Stack Developer & UI/UX Designer</title>
+
+    <style>
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f8fafc;
+            color: #172033;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #4f46e5;
+            letter-spacing: -1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            color: #475569;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4f46e5;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 92vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+            background:
+                radial-gradient(circle at 20% 20%,
+                rgba(99, 102, 241, 0.16),
+                transparent 30%),
+
+                radial-gradient(circle at 80% 70%,
+                rgba(236, 72, 153, 0.13),
+                transparent 30%),
+
+                #f8fafc;
+        }
+
+        .hero-content {
+            max-width: 850px;
+
+            animation: fadeUp 1s ease;
+        }
+
+        .hello {
+            display: inline-block;
+
+            padding: 8px 16px;
+
+            margin-bottom: 22px;
+
+            border-radius: 50px;
+
+            background: #eef2ff;
+            color: #4f46e5;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 75px);
+
+            line-height: 1.05;
+
+            letter-spacing: -3px;
+
+            color: #111827;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(
+                90deg,
+                #4f46e5,
+                #7c3aed,
+                #ec4899
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero h2 {
+            font-size: clamp(22px, 4vw, 32px);
+
+            color: #334155;
+
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            font-size: 18px;
+        }
+
+        /* Decorative circles */
+
+        .circle {
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(1px);
+
+            opacity: 0.5;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .section-heading span {
+            color: #4f46e5;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+
+            margin-top: 8px;
+
+            color: #111827;
+        }
+
+        .section-heading p {
+            color: #64748b;
+
+            margin-top: 10px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-container {
+            max-width: 950px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(170px, 1fr));
+
+            gap: 18px;
+        }
+
+        .skill-card {
+            background: white;
+
+            padding: 25px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 8px 25px rgba(15, 23, 42, 0.05);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #c7d2fe;
+
+            box-shadow:
+                0 15px 35px rgba(79, 70, 229, 0.12);
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 15px;
+
+            border-radius: 14px;
+
+            background: #eef2ff;
+
+            color: #4f46e5;
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+        .skill-card h3 {
+            font-size: 17px;
+
+            color: #1e293b;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education-container {
+            max-width: 850px;
+
+            margin: auto;
+
+            display: grid;
+
+            gap: 20px;
+        }
+
+        .education-card {
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+            background: white;
+
+            padding: 28px;
+
+            border-radius: 20px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 8px 25px rgba(15, 23, 42, 0.05);
+
+            transition: 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateX(8px);
+
+            border-color: #c7d2fe;
+        }
+
+        .education-icon {
+            min-width: 60px;
+            height: 60px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background: #eef2ff;
+
+            color: #4f46e5;
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+        .education-info h3 {
+            color: #111827;
+
+            margin-bottom: 5px;
+        }
+
+        .education-info p {
+            color: #64748b;
+        }
+
+        .percentage {
+            display: inline-block;
+
+            margin-top: 8px;
+
+            padding: 5px 12px;
+
+            background: #f0fdf4;
+
+            color: #16a34a;
+
+            border-radius: 50px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+        /* =========================
+           PROJECT
+        ========================= */
+
+        .project-container {
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .project-card {
+            position: relative;
+
+            overflow: hidden;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 24px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 15px 40px rgba(15, 23, 42, 0.07);
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 50px rgba(79, 70, 229, 0.12);
+        }
+
+        .project-number {
+            position: absolute;
+
+            right: 25px;
+            top: 15px;
+
+            font-size: 70px;
+
+            font-weight: 900;
+
+            color: #f1f5f9;
+        }
+
+        .project-card h3 {
+            position: relative;
+
+            font-size: 27px;
+
+            color: #4f46e5;
+
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            position: relative;
+
+            color: #64748b;
+
+            margin-bottom: 18px;
+        }
+
+        .project-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 7px 13px;
+
+            background: #f1f5f9;
+
+            color: #475569;
+
+            border-radius: 50px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .experience-card {
+            max-width: 850px;
+
+            margin: auto;
+
+            background: linear-gradient(
+                135deg,
+                #111827,
+                #312e81
+            );
+
+            padding: 45px;
+
+            border-radius: 25px;
+
+            color: white;
+
+            box-shadow:
+                0 20px 45px rgba(30, 27, 75, 0.2);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .experience-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            right: -70px;
+            top: -70px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .experience-card h3 {
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+        .experience-role {
+            color: #c7d2fe;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+        .experience-card p {
+            color: #cbd5e1;
+
+            max-width: 650px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-section {
+            background: #f1f5f9;
+        }
+
+        .contact-box {
+            max-width: 850px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 38px;
+
+            color: #111827;
+
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: #64748b;
+
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 13px 20px;
+
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            color: #334155;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #4f46e5;
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.08);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 25px;
+
+            text-align: center;
+
+            background: #0f172a;
+
+            color: #94a3b8;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 16px 5%;
+            }
+
+            nav ul {
+                gap: 14px;
+
+                justify-content: center;
+
+                flex-wrap: wrap;
+            }
+
+            nav ul li a {
+                font-size: 13px;
+            }
+
+            .hero {
+                min-height: 85vh;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            section {
+                padding: 65px 5%;
+            }
+
+            .section-heading h2 {
+                font-size: 30px;
+            }
+
+            .education-card {
+                align-items: flex-start;
+
+                padding: 22px;
+            }
+
+            .experience-card,
+            .project-card {
+                padding: 28px;
+            }
+
+            .contact-box h2 {
+                font-size: 30px;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            Miruthulaa.
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#project">Project</a>
+            </li>
+
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HOME
+    ========================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hello">
+                Welcome to my portfolio
+            </div>
+
+            <h1>
+                Hi, I'm <span>Miruthulaa</span>
+            </h1>
+
+            <h2>
+                Full Stack Developer & UI/UX Designer
+            </h2>
+
+            <p>
+                I create modern web applications and clean,
+                user-friendly digital experiences with a focus
+                on both functionality and design.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills">
+
+        <div class="section-heading">
+
+            <span>What I Do</span>
+
+            <h2>Skills</h2>
+
+            <p>
+                Technologies and tools I use to build and design.
+            </p>
+
+        </div>
+
+
+        <div class="skills-container">
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    H
+                </div>
+
+                <h3>HTML</h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    C
+                </div>
+
+                <h3>CSS</h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    JS
+                </div>
+
+                <h3>JavaScript</h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    R
+                </div>
+
+                <h3>React</h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    N
+                </div>
+
+                <h3>Node.js</h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    M
+                </div>
+
+                <h3>MongoDB</h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    UI
+                </div>
+
+                <h3>UI/UX Design</h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    F
+                </div>
+
+                <h3>Figma</h3>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+    ========================= -->
+
+    <section id="education">
+
+        <div class="section-heading">
+
+            <span>My Journey</span>
+
+            <h2>Education</h2>
+
+            <p>
+                My academic background.
+            </p>
+
+        </div>
+
+
+        <div class="education-container">
+
+
+            <!-- 12th -->
+
+            <div class="education-card">
+
+                <div class="education-icon">
+                    12
+                </div>
+
+                <div class="education-info">
+
+                    <h3>
+                        Higher Secondary Education
+                    </h3>
+
+                    <p>
+                        SR Matric Higher Secondary School
+                    </p>
+
+                    <span class="percentage">
+                        83%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- 10th -->
+
+            <div class="education-card">
+
+                <div class="education-icon">
+                    10
+                </div>
+
+                <div class="education-info">
+
+                    <h3>
+                        Secondary Education
+                    </h3>
+
+                    <p>
+                        SR Matric Higher Secondary School
+                    </p>
+
+                    <span class="percentage">
+                        93%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECT
+    ========================= -->
+
+    <section id="project">
+
+        <div class="section-heading">
+
+            <span>My Work</span>
+
+            <h2>Project</h2>
+
+            <p>
+                A project I developed as a Full Stack Developer.
+            </p>
+
+        </div>
+
+
+        <div class="project-container">
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    01
+                </div>
+
+                <h3>
+                    Vendor Management System
+                </h3>
+
+                <p>
+                    A web-based application designed to manage
+                    vendors and simplify quotation submission,
+                    purchase orders, purchase history and vendor
+                    rating.
+                </p>
+
+                <div class="project-tags">
+
+                    <span class="tag">
+                        Full Stack
+                    </span>
+
+                    <span class="tag">
+                        Web Application
+                    </span>
+
+                    <span class="tag">
+                        Vendor Management
+                    </span>
+
+                    <span class="tag">
+                        Database
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================= -->
+
+    <section id="experience">
+
+        <div class="section-heading">
+
+            <span>Professional Journey</span>
+
+            <h2>Experience</h2>
+
+            <p>
+                My practical industry experience.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <h3>
+                Touchmark Descience Pvt Ltd
+            </h3>
+
+            <div class="experience-role">
+                Full Stack Developer
+            </div>
+
+            <p>
+                Worked as a Full Stack Developer during my internship,
+                gaining practical experience in frontend development,
+                backend development and building real-world web
+                applications.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="contact-box">
+
+            <h2>
+                Let's Connect
+            </h2>
+
+            <p>
+                Feel free to connect with me for opportunities,
+                projects or collaborations.
+            </p>
+
+
+            <div class="contact-links">
+
+                <a
+                    class="contact-link"
+                    href="mailto:miruthulaa19@gmail.com"
+                >
+                    ✉ Email
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="https://github.com/miruthulaa19-M"
+                    target="_blank"
+                >
+                    GitHub
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="https://www.linkedin.com/in/miruthulaa-m-a75362418/"
+                    target="_blank"
+                >
+                    LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 Miruthulaa. All Rights Reserved.
+
+    </footer>
+
+
+</body>
+</html>
+```
